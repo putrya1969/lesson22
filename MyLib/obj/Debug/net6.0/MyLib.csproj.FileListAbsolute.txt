@@ -1,0 +1,12 @@
+D:\Beetroot\Lesson3\Lesson22\MyLib\bin\Debug\net6.0\MyLib.deps.json
+D:\Beetroot\Lesson3\Lesson22\MyLib\bin\Debug\net6.0\MyLib.dll
+D:\Beetroot\Lesson3\Lesson22\MyLib\bin\Debug\net6.0\MyLib.pdb
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.csproj.AssemblyReference.cache
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.AssemblyInfoInputs.cache
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.AssemblyInfo.cs
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.csproj.CoreCompileInputs.cache
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.dll
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\refint\MyLib.dll
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\MyLib.pdb
+D:\Beetroot\Lesson3\Lesson22\MyLib\obj\Debug\net6.0\ref\MyLib.dll
