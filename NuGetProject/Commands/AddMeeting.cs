@@ -20,9 +20,9 @@ namespace CalendarProject.Commands
             Mnemonic = mnemonic;
             Data = data;
         }
-        public void Execute()
+        public bool Execute()
         {
-            Console.WriteLine("Select room number");
+            Console.WriteLine("Enter room number");
             var roomNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter date and time meeting");
             var startDate = DateTime.Parse(Console.ReadLine());
@@ -33,8 +33,21 @@ namespace CalendarProject.Commands
             Console.WriteLine("Enter meeting topic");
             var topic = Console.ReadLine();
             var room = Data.Where(r => r.Number == roomNumber).FirstOrDefault();
-            if (room != null)
-                room.Meetings.Add(new Meeting(0, startDate, duration, organizer, topic));
+            if (room == null)
+            {
+                throw new Exception("room not finded");
+            }
+            var meetingId = room.Meetings.Count == 0? 0: room.Meetings.Max(m => m.Id) + 1;
+            room.Meetings.Add(new Meeting(meetingId, startDate, duration, organizer, topic));
+            return true;
+        }
+
+        private void PrintRoomNumber()
+        {
+            foreach (var item in Data)
+            {
+                Console.WriteLine(item.Number);
+            }
         }
     }
 }

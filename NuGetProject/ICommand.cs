@@ -11,6 +11,8 @@ namespace CalendarProject
         public string Name { get; set; }
         public string Description { get; set; }
         public string Mnemonic { get; set; }
-        void Execute();
+
+        public List<Room> Data { get; set; }
+        bool Execute();
     }
 }

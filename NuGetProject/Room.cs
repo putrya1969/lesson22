@@ -10,5 +10,11 @@ namespace CalendarProject
     {
         public int Number { get; set; }
         public List<Meeting> Meetings { get; set; }
+
+        public Room(int number)
+        {
+            Number = number;
+            Meetings = new List<Meeting>();
+        }
     }
 }

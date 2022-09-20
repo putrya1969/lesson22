@@ -15,7 +15,9 @@ namespace CalendarProject
         {
             Data = data;
             ContextCommands.Add(new ViewMeetings("View", "View all meetings", "V", Data));
-            ContextCommands.Add(new AddMeeting("Add", "Add meeting to room", "V", Data));
+            ContextCommands.Add(new AddRoom("NewRoom", "Create new room for meetings", "R", Data));
+            ContextCommands.Add(new AddMeeting("Add", "Add meeting to room", "A", Data));
+            ContextCommands.Add(new HaltProcess("Halt", "Determinate process", "H", Data));
         }
     }
 }
