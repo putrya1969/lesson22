@@ -11,10 +11,10 @@ namespace CalendarProject
         public int Number { get; set; }
         public List<Meeting> Meetings { get; set; }
 
-        public Room(int number)
+        public Room(int number, List<Meeting> meetings)
         {
             Number = number;
-            Meetings = new List<Meeting>();
+            Meetings = meetings;
         }
     }
 }

@@ -14,10 +14,11 @@ namespace CalendarProject
         public AdminContext(List<Room> data)
         {
             Data = data;
-            ContextCommands.Add(new ViewMeetings("View", "View all meetings", "V", Data));
-            ContextCommands.Add(new AddRoom("NewRoom", "Create new room for meetings", "R", Data));
-            ContextCommands.Add(new AddMeeting("Add", "Add meeting to room", "A", Data));
-            ContextCommands.Add(new HaltProcess("Halt", "Determinate process", "H", Data));
+            ContextCommands.Add(new ViewAllMeetings("ViewAll", "View all meetings", "V", Data));
+            ContextCommands.Add(new ViewMeetingsByRoom("ViewByRoom", "View meetings by selected room", "M", Data));
+            ContextCommands.Add(new AddRoom("NewRoom", "Create new room for meetings", "C", Data));
+            ContextCommands.Add(new AddMeeting("AddMeeting", "Add meeting to room", "A", Data));
+            ContextCommands.Add(new HaltProcess("Halt", "To return", "R", Data));
         }
     }
 }

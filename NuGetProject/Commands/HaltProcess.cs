@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CalendarProject.Commands
@@ -18,11 +20,22 @@ namespace CalendarProject.Commands
             Name = name;
             Description = description;
             Mnemonic = mnemonic;
+            Data = rooms;
         }
 
         public bool Execute()
         {
+            UpdateData();
             return false;
+        }
+        private void UpdateData()
+        {
+
+            using (FileStream fs = new FileStream("rooms.json", FileMode.Create))
+            {
+                JsonSerializer.SerializeAsync<List<Room>>(fs, Data);
+                Console.WriteLine("Data has been saved to file");
+            }
         }
     }
 }

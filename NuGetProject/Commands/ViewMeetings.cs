@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CalendarProject.Commands
 {
-    internal class ViewMeetings : ICommand
+    internal class ViewAllMeetings : ICommand
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public string Mnemonic { get; set; }
         public List<Room> Data { get; set; }
 
-        public ViewMeetings(string name, string description, string mnemonic, List<Room> rooms)
+        public ViewAllMeetings(string name, string description, string mnemonic, List<Room> rooms)
         {
             Name = name;
             Description = description;
@@ -27,7 +27,7 @@ namespace CalendarProject.Commands
                 Console.WriteLine($"Meetings for {room.Number} room");
                 foreach (var meeting in room.Meetings)
                 {
-                    Console.WriteLine($"\t{meeting.StartTime} {meeting.Duration} {meeting.Organizer} {meeting.Organizer}");
+                    Console.WriteLine($"  {meeting.StartTime} {meeting.Duration} {meeting.Organizer} {meeting.Topic}");
                 }
             }
             return true;

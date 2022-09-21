@@ -22,15 +22,29 @@ namespace CalendarProject.Commands
         }
         public bool Execute()
         {
-            Console.WriteLine("Rooms list:");
-            foreach (var room in Data)
-            {
-                Console.WriteLine(room.Number);
-            }
+            Console.WriteLine("Existing rooms list:");
+            ShowExistingRoom();
             Console.WriteLine("Enter new number room");
-            Data.Add(new Room(int.Parse(Console.ReadLine())));
+            if (RoomExists(int.Parse(Console.ReadLine())))
+            {
+                Console.WriteLine("Room exists");
+                return true;
+            }
+            Data.Add(new Room(int.Parse(Console.ReadLine()), new List<Meeting>()));
             Console.WriteLine($"Room was added!");
             return true;
+        }
+        private void ShowExistingRoom()
+        {
+            foreach (var item in Data)
+            {
+                Console.WriteLine(item.Number);
+            }
+        }
+
+        private bool RoomExists(int roomNumber)
+        {
+            return Data.Where(r => r.Number == roomNumber).ToList().Count > 0;
         }
     }
 }

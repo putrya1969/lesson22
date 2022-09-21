@@ -16,7 +16,9 @@ namespace CalendarProject
         public UserContext(List<Room> data)
         {
             Data = data;
-            ContextCommands.Add(new ViewMeetings("View", "View all meetings", "V", Data));
+            ContextCommands.Add(new ViewAllMeetings("ViewAll", "View all meetings", "V", Data));
+            ContextCommands.Add(new ViewMeetingsByRoom("ViewByRoom", "View meetings by selected room", "M", Data));
+            ContextCommands.Add(new HaltProcess("Halt", "To return", "R", Data));
         }
     }
 }

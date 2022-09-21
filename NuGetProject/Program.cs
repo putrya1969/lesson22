@@ -15,21 +15,17 @@ namespace NuGetProject
         static void Main(string[] args)
         {
             IDataContext currentContext = null;
-            Console.WriteLine("Enter your name");
+            var data = new JsonDataReader().Data;
+            if (data == null) data = new List<Room>();
+            do
+            {
+            Console.WriteLine("For authentification\nenter your name");
             var userInput = Console.ReadLine().ToLower();
-            currentContext = userInput != "admin"? new UserContext(new List<Room>()): new AdminContext(new List<Room>());
+            currentContext = userInput != "admin"? new UserContext(data): new AdminContext(data);
             var contextProcessor = new ContextProcessor(currentContext);
             contextProcessor.Process();
-            
-            //Console.WriteLine("Select command Id");
-            //foreach (var item in currentContext.ContextCommands)
-            //{
-            //    Console.WriteLine($"{currentContext.ContextCommands.IndexOf(item)} {item.Description}\t{item.Mnemonic}");
-            //}
-            //var position = Console.ReadLine().ToLower();
-            //var command = currentContext.ContextCommands.Where(c => c.Mnemonic == position).FirstOrDefault();
-            //command.Execute();
-
+            Console.WriteLine("To exit press Esc, to change user press any key");
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
     }
 }

@@ -26,28 +26,22 @@ namespace CalendarProject
             while (isProcess)
             {
                 Console.Clear();
+                Console.WriteLine("For selecting command enter char:");
                 ShowCommands();
-                var command = _context.ContextCommands.Where(c => c.Mnemonic == Console.ReadLine().ToUpper()).FirstOrDefault();
+                var userChoice = Console.ReadLine().ToUpper();
+                Console.Clear();
+                var command = _context.ContextCommands.Where(c => c.Mnemonic == userChoice).FirstOrDefault();
                 isProcess = command.Execute();
+                Console.WriteLine("press any key for continue...");
+                Console.ReadKey();
             }
-            UpdateData();
         }
 
         private void ShowCommands()
         {
             foreach (var command in _context.ContextCommands)
             {
-                Console.WriteLine($"{_context.ContextCommands.IndexOf(command)} {command.Description}\t{command.Mnemonic}");
-            }
-        }
-
-        private void UpdateData()
-        {
-            using (FileStream fs = new FileStream("rooms.json", FileMode.OpenOrCreate))
-            {
-                var rooms = _context.Data;
-                JsonSerializer.SerializeAsync<List<Room>>(fs, rooms);
-                Console.WriteLine("Data has been saved to file");
+                Console.WriteLine($"{command.Description}{new string(' ', 35 - command.Description.Length)}{command.Mnemonic}");
             }
         }
     }

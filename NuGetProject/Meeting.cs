@@ -11,9 +11,9 @@ namespace CalendarProject
         public int Id { get; set; }
         public string Topic { get; set; }
         public string Organizer { get; set; }
-        public DateTime StartTime { get; set; }
-        public TimeSpan Duration { get; set; }
-        public Meeting(int id, DateTime startTime, TimeSpan duration, string organizer, string topic)
+        public string StartTime { get; set; }
+        public string Duration { get; set; }
+        public Meeting(int id, string startTime, string duration, string organizer, string topic)
         {
             Id = id;
             StartTime = startTime;
